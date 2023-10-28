@@ -6,6 +6,7 @@ import {Routes, Route} from "react-router-dom";
 import HomePage from "./pages/home-page/HomePage";
 import HonorPage from "./pages/honors-page/HonorPage";
 import CommitRankPage from "./pages/commit-rank-page/CommitRankPage";
+import LikeRankPage from "./pages/likes-rank-page/LikeRankPage";
 import LoginPage from "./pages/login-page/LoginPage";
 import SignupPage from "./pages/signup-page/SignupPage";
 import PostPage from "./pages/post-page/PostPage";
@@ -30,12 +31,13 @@ function App() {
             {
                 <div className={'flex'}>
                     {login && <Navigator setLogin={setLogin} setId={setId} />}
-                    <Container>
+                    <Container> 
                         <Routes>
                             <Route path={"/"} element={<HomePage id={id} />} />
                             <Route path={"/login"} element={<LoginPage setLogin={setLogin} setId={setId} />} />
                             <Route path={"/signup"} element={<SignupPage />} />
                             <Route path={"/commit-rank"} element={<CommitRankPage id={id} />} />
+                            <Route path={"/like-rank"} element={<LikeRankPage />} />
                             <Route path={"/posting-rank"} element={<PostingRankPage />} />
                             <Route path={"/post"} element={<PostPage id={id} />} />
                             <Route path={"/honor"} element={<HonorPage />} />

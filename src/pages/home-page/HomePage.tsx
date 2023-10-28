@@ -54,7 +54,6 @@ const HomePage = ({ id }: props) => {
     ]);
     
     useEffect(() => {
-        console.log('hihi');
         void (async () => {
             try {
                 const response = await fetchData<HomeModel>(`${API_BASE_URL}/home?id=${id}`, 'GET');

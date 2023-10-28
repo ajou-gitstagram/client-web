@@ -35,7 +35,7 @@ function App() {
                             <Route path={"/"} element={<HomePage id={id} />} />
                             <Route path={"/login"} element={<LoginPage setLogin={setLogin} setId={setId} />} />
                             <Route path={"/signup"} element={<SignupPage />} />
-                            <Route path={"/commit-rank"} element={<CommitRankPage />} />
+                            <Route path={"/commit-rank"} element={<CommitRankPage id={id} />} />
                             <Route path={"/posting-rank"} element={<PostingRankPage />} />
                             <Route path={"/post"} element={<PostPage id={id} />} />
                             <Route path={"/honor"} element={<HonorPage />} />

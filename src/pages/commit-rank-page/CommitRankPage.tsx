@@ -6,32 +6,26 @@ const dummy: RankModel = [
     {
         id: "id000",
         commits: 1,
-		rank: 0,
     },
     {
         id: "id111",
         commits: 4,
-		rank: 0,
     },
     {
         id: "id222",
         commits: 3,
-		rank: 0,
     },
     {
         id: "id333",
         commits: 7,
-		rank: 0,
     },
 	{
         id: "id444",
         commits: 10,
-		rank: 0,
     },
 	{
         id: "id555",
         commits: 5,
-		rank: 0,
     },
 
 ]
@@ -57,7 +51,7 @@ const CommitRankPage = () => {
 			))}
 			</select>
 		</div>
-		<h2 style={{fontSize: "50px", marginBottom: "20px"}}>Month of {selectedMonth}</h2>
+		<h2 style={{fontSize: "50px", marginBottom: "20px"}}>👨‍💻 Rank Month of {selectedMonth}</h2>
 		
         <div className={S['ranking']}>
 			{sortedDummy.map((d, i) => {

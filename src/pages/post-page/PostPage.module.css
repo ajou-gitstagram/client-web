@@ -1,0 +1,43 @@
+.container {
+    padding: 32px;
+    height: 100%;
+}
+
+.post-title {
+    font-weight: bold;
+    font-size: 24px;
+    text-align: left;
+    margin-bottom: 32px;
+}
+
+.post-area {
+    width: 100%;
+    height: 300px;
+    font-size: 18px;
+    display: block;
+}
+
+.post-subtitle {
+    text-align: left;
+    margin-bottom: 8px;
+    font-size: 24px;
+}
+
+.post-submit {
+    margin-top: 32px;
+    float: right;
+    width: 128px;
+    height: 48px;
+    background-color: white;
+    border-radius: 16px;
+    border: 1px solid black;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.post-tag-input {
+    width: 70%;
+    height: 32px;
+    font-size: 18px;
+    float: left;
+}

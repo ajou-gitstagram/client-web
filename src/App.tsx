@@ -29,7 +29,7 @@ function App() {
                             <Route path={"/login"} element={<LoginPage setLogin={setLogin} setId={setId} />} />
                             <Route path={"/signup"} element={<SignupPage />} />
                             <Route path={"/rank"} element={<RankPage />} />
-                            <Route path={"/post"} element={<PostPage />} />
+                            <Route path={"/post"} element={<PostPage id={id} />} />
                         </Routes>
                     </Container>
                 </div>

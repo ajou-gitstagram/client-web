@@ -38,7 +38,7 @@ function App() {
                             <Route path={"/signup"} element={<SignupPage />} />
                             <Route path={"/commit-rank"} element={<CommitRankPage id={id} />} />
                             <Route path={"/like-rank"} element={<LikeRankPage />} />
-                            <Route path={"/posting-rank"} element={<PostingRankPage />} />
+                            <Route path={"/posting-rank"} element={<PostingRankPage id={id}/>} />
                             <Route path={"/post"} element={<PostPage id={id} />} />
                             <Route path={"/honor"} element={<HonorPage />} />
                             <Route path={"/credits"} element={<CreditPage />} />

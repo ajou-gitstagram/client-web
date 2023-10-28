@@ -1,6 +1,7 @@
 import S from "./PostingRankPage.module.css";
-import {HomeModel} from "../home-page/config/model";
-import React, {useState} from "react";
+import {HomeData, HomeModel} from "../home-page/config/model";
+import React, {useState, useEffect} from "react";
+import {API_BASE_URL, fetchData} from "../../common/util/api";
 
 const dummy: HomeModel = [
 	{
@@ -47,15 +48,35 @@ const dummy: HomeModel = [
 	},
 ]
 
-const PostingRankPage = () => {
+interface props {
+	id: string;
+}
+interface PostRankData {
+	uid: number;
+	id: string;
+	content: string;
+	like: number;
+	tag: string[];
+}
 
+const PostingRankPage = ({id}:props) => {
+	const [data, setData] = useState<PostRankData[]>([]);
 	const [selectedMonth, setSelectedMonth] = useState(new Date().getMonth() + 1)
 	
 	const handleMonthChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
 		setSelectedMonth(parseInt(e.target.value, 10));
 	};
-	
-	const sortedDummy = [...dummy].sort((a, b) => b.like - a.like);
+	useEffect(() => {
+		void (async () => {
+			try {
+				const response = await fetchData<PostRankData[]>(`${API_BASE_URL}/rank/${id}?type=likes`, 'GET');
+				setData(() => response);
+				console.log(data);
+			} catch {
+				alert('요청에 실패하였습니다.');
+			}
+		})();
+	  }, []);
 
 	return (
 	<div>
@@ -73,8 +94,9 @@ const PostingRankPage = () => {
 			<h2 style={{fontSize: "50px", marginBottom: "20px"}}>👨‍💻 Posting Rank Month of {selectedMonth}</h2>
 		
 			<div className={S['ranking']}>
-				{ sortedDummy.map((d, i) => {
-					return <ContentsBox data={d} rank={i+1}/>
+				{ data.map((d, i) => {
+					const {id, like, content} = d;
+					return <ContentsBox data={{id, like, content}} rank={i+1}/>
 				}) }
 			</div>
 		</div>
@@ -92,12 +114,14 @@ const getMedal = (idx: number) => {
 const ContentsBox: React.FC<{ data: { id: string, like: number, content: string }, rank: number}> = ({ data, rank }) => {
  
 	return (
-        <div className={S['rankItem']}>
-			<span className={S["rank"]}>{rank}{getMedal(rank)}</span>
-            <span className={S['id']}>{data.id}</span>
-			<pre className={S['contents']}>{data.content}</pre>
-            <span className={S['likes']}>{data.like} 💛</span>
-        </div>
+		<article className={S['container']}>
+			<p className={S['content-id']}>{getMedal(rank)} {rank}등 @{data.id}</p>
+			<hr />
+			<p className={S['content-content']}>{data.content}</p>
+			<hr />	
+			<div className={'flex space-between'}>	
+			</div>
+		</article>
     );
 }
 

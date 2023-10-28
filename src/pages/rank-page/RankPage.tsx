@@ -57,7 +57,7 @@ const RankPage = () => {
 			))}
 			</select>
 		</div>
-		<h2 style={{fontSize: "50px", marginBottom: "20px"}}>이 달의 랭킹 {selectedMonth}</h2>
+		<h2 style={{fontSize: "50px", marginBottom: "20px"}}>{selectedMonth} 이 달의 랭킹</h2>
 		
         <div className={S['ranking']}>
 			{sortedDummy.map((d, i) => {

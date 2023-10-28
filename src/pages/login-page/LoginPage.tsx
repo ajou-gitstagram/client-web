@@ -1,6 +1,11 @@
 import "./LoginPage.module.css";
+import {Dispatch, SetStateAction} from "react";
 
-const LoginPage = () => {
+interface props {
+	setLogin: Dispatch<SetStateAction<boolean>>;
+}
+
+const LoginPage = ({ setLogin }:props) => {
 	return (<p>login</p>);
 }
 

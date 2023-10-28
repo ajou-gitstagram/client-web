@@ -1,0 +1,6 @@
+.navigator-container {
+    height: calc(100vh - 100px);
+    width: 200px;
+
+    background-color: greenyellow;
+}

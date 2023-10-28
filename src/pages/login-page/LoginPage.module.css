@@ -1,9 +1,11 @@
 .page {
+    margin-top: 50%;
     margin-left: 10%;
     margin-right: 10%;
 }
 
 .inputWrap {
+    width:80%;
     border-radius: 20px;
     padding: 16px;
     margin-top: 8px;
@@ -25,14 +27,14 @@
 }
 
 .bottomButton {
-    width: 100%;
+    width: 50%;
     height: 48px;
     border: none;
     font-weight: bold;  
     border-radius: 64px;
     background-color: #fcfc;
     color: white;
-    margin-bottom: 16px;
+    margin-top: 16px;
     cursor: pointer;
 }
 

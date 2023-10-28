@@ -14,6 +14,7 @@ import Container from "./common/module/container/Container";
 
 function App() {
     const [login, setLogin] = useState(true);
+    const [id, setId] = useState("");
     // FIXME:: default is false on prod
     
     return (
@@ -25,7 +26,7 @@ function App() {
                     <Container>
                         <Routes>
                             <Route path={"/"} element={<HomePage />} />
-                            <Route path={"/login"} element={<LoginPage setLogin={setLogin} />} />
+                            <Route path={"/login"} element={<LoginPage setLogin={setLogin} setId={setId} />} />
                             <Route path={"/signup"} element={<SignupPage />} />
                             <Route path={"/rank"} element={<RankPage />} />
                             <Route path={"/post"} element={<PostPage />} />

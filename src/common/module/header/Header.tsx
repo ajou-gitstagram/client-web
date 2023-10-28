@@ -5,7 +5,7 @@ const Header = () => {
 	return (
 		<Link to={'/'}>
 			<header className={S['header-container']}>
-				<img className={S['header-logo']} src={'/img/logo.jpg'}/>
+				<img className={S['header-logo']} src={'/img/logo.png'}/>
 			</header>
 		</Link>
 	);

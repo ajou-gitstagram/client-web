@@ -8,7 +8,7 @@ const SignupPage = () => {
 	};
 	return (
 		<div className={S["page"]}>
-			<img className="logo" alt="logo" src="img/logo.jpg" style={{width:"30rem"}}/>
+			<img className="logo" alt="logo" src="img/logo.png" style={{width:"30rem"}}/>
 			<div className={S["inputTitle"]}>깃 아이디</div>
 			<div className={S["inputWrap"]}>
 				<input

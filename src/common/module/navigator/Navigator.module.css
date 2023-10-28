@@ -12,8 +12,11 @@
     height: 64px;
     display: flex;
     align-items: center;
-    justify-content: center;
     font-size: 28px;
     border-bottom: 1px solid gray;
     color: black;
+}
+
+.navigator-item span {
+    margin-left: 32px;
 }

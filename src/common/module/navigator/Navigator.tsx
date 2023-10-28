@@ -11,19 +11,40 @@ const Navigator = ({ setLogin, setId }: props) => {
 	return (
 		<nav className={S['navigator-container']}>
 			<Link to={'/'}>
-				<div className={S['navigator-item']}>🏠 Home</div>
+				<div className={S['navigator-item']}>
+					<span>🏠</span>
+					<span>Home</span>
+				</div>
 			</Link>
 			<Link to={'/rank'}>
-				<div className={S['navigator-item']}>👑 Ranks</div>
+				<div className={S['navigator-item']}>
+					<span>👑</span>
+					<span>Commit Ranks</span>
+				</div>
+			</Link>
+			<Link to={'/rank'}>
+				<div className={S['navigator-item']}>
+					<span>❤</span>️
+					<span>Posting Ranks</span>
+				</div>
 			</Link>
 			<Link to={'/honor'}>
-				<div className={S['navigator-item']}>🎊 Honors</div>
+				<div className={S['navigator-item']}>
+					<span>🎊</span>
+					<span>Honors</span>
+				</div>
 			</Link>
 			<Link to={'/credits'}>
-				<div className={S['navigator-item']}>🙇‍ Credits</div>
+				<div className={S['navigator-item']}>
+					<span>🙇</span>
+					<span>Credits</span>
+			</div>
 			</Link>
 			<Link to={'/login'} onClick={() => { setLogin(false); setId(""); }}>
-				<div className={S['navigator-item']}>🔓‍ Logout</div>
+				<div className={S['navigator-item']}>
+					<span>🔓</span>
+					<span>Logout</span>
+				</div>
 			</Link>
 		</nav>
 	);

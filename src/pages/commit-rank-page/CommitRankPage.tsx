@@ -1,5 +1,5 @@
-import S from './RankPage.module.css';
-import React, {useState, useEffect, ReactComponentElement, ReactHTMLElement} from "react";
+import S from './CommitRankPage.module.css';
+import React, {useState} from "react";
 import type {RankModel} from "./config/model";
 
 const dummy: RankModel = [
@@ -36,7 +36,7 @@ const dummy: RankModel = [
 
 ]
 
-const RankPage = () => {
+const CommitRankPage = () => {
 	const [selectedMonth, setSelectedMonth] = useState(new Date().getMonth() + 1)
 	
 	const handleMonthChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -85,4 +85,4 @@ const ContentsBox: React.FC<{ data: { id: string, commits: number }, rank: numbe
     );
 }
 
-export default RankPage;
+export default CommitRankPage;

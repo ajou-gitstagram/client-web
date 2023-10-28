@@ -57,7 +57,7 @@ const RankPage = () => {
 			))}
 			</select>
 		</div>
-		<h2 style={{fontSize: "50px", marginBottom: "20px"}}>{selectedMonth} 이 달의 랭킹</h2>
+		<h2 style={{fontSize: "50px", marginBottom: "20px"}}>Month of {selectedMonth}</h2>
 		
         <div className={S['ranking']}>
 			{sortedDummy.map((d, i) => {
@@ -68,10 +68,17 @@ const RankPage = () => {
   	);
 }
 
+const getMedal = (idx: number) => {
+	if (idx === 1) return "🥇";
+	else if (idx === 2) return "🥈";
+	else if (idx === 3) return "🥉";
+	else return "";
+}
+
 const ContentsBox: React.FC<{ data: { id: string, commits: number }, rank: number }> = ({ data, rank }) => {
     return (
         <div className={S['rankItem']}>
-            <span className={S['rank']}>{rank}</span>
+            <span className={S['rank']}>{rank}{getMedal(rank)}</span>
             <span className={S['id']}>{data.id}</span>
             <span className={S['commits']}>{data.commits} commits</span>
         </div>

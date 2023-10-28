@@ -4,6 +4,7 @@ import './common/reset.css';
 import './common/common.css';
 import {Routes, Route} from "react-router-dom";
 import HomePage from "./pages/home-page/HomePage";
+import HonorPage from "./pages/honors-page/HonorPage";
 import CommitRankPage from "./pages/commit-rank-page/CommitRankPage";
 import LoginPage from "./pages/login-page/LoginPage";
 import SignupPage from "./pages/signup-page/SignupPage";
@@ -32,6 +33,7 @@ function App() {
                             <Route path={"/commit-rank"} element={<CommitRankPage />} />
                             <Route path={"/posting-rank"} element={<PostingRankPage />} />
                             <Route path={"/post"} element={<PostPage id={id} />} />
+                            <Route path={"/honor"} element={<HonorPage />} />
                         </Routes>
                     </Container>
                 </div>

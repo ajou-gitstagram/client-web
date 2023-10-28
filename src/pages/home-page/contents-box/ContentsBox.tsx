@@ -1,30 +1,29 @@
 import S from './ContentsBox.module.css';
 import {HomeData} from "../config/model";
 import {Dispatch, SetStateAction, useEffect, useState} from "react";
+import {API_BASE_URL, fetchData} from "../../../common/util/api";
 
 interface props {
 	data: HomeData
 }
 
-const handleClickLike = (setLiked: Dispatch<SetStateAction<boolean>>, liked: boolean, setLikeCount: Dispatch<SetStateAction<number>>, uid: number) => {
+const handleClickLike = (setLiked: Dispatch<SetStateAction<boolean>>, liked: boolean, setLikeCount: Dispatch<SetStateAction<number>>, likeCount: number, data: HomeData) => {
 	const likedUid: number[] = JSON.parse(localStorage.getItem('likedUid') || '[]');
 	
 	setLiked((prev) => !prev);
 	if (liked) {
 		likedUid.forEach((d) => {
-			if (uid === d) { // @ts-ignore
+			if (data.uid === d) { // @ts-ignore
 				likedUid.pop(d);
 			}
 		});
 		setLikeCount((prev) => prev - 1);
 	}
 	if (!liked) {
-		likedUid.push(uid);
+		likedUid.push(data.uid);
 		setLikeCount((prev) => prev + 1);
 	}
 	localStorage.setItem('likedUid', JSON.stringify(likedUid));
-	
-	//TODO:: API CONNECT
 }
 
 const ContentsBox = ({ data }: props) => {
@@ -32,7 +31,7 @@ const ContentsBox = ({ data }: props) => {
 	const [likeCount, setLikeCount] = useState(0);
 	
 	useEffect(() => {
-		setLikeCount(data.like);
+		setLikeCount(Number(data.like));
 	}, [data]);
 	
 	useEffect(() => {
@@ -41,6 +40,10 @@ const ContentsBox = ({ data }: props) => {
 			if (data.uid === d) setLiked(true);
 		});
 	}, [data]);
+	
+	useEffect(() => {
+		fetchData<{}>(`${API_BASE_URL}/home?id=${data.id}&uid=${data.uid}&like=${likeCount}`, 'GET');
+	}, [likeCount]);
 	
 	
 	return (
@@ -58,7 +61,7 @@ const ContentsBox = ({ data }: props) => {
 						: data.tags
 					}
 				</div>
-				<div onClick={() => handleClickLike(setLiked, liked, setLikeCount, data.uid)} className={S['content-like']}>
+				<div onClick={() => handleClickLike(setLiked, liked, setLikeCount, likeCount, data)} className={S['content-like']}>
 					<span>{liked ? "❤️ " : "♡ "}</span>
 					<span>{likeCount}</span>
 				</div>

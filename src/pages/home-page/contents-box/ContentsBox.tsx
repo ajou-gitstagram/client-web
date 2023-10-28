@@ -9,6 +9,7 @@ interface props {
 
 const handleClickLike = (setLiked: Dispatch<SetStateAction<boolean>>, liked: boolean, setLikeCount: Dispatch<SetStateAction<number>>, likeCount: number, data: HomeData) => {
 	const likedUid: number[] = JSON.parse(localStorage.getItem('likedUid') || '[]');
+	let _cnt: number = 0;
 	
 	setLiked((prev) => !prev);
 	if (liked) {
@@ -18,12 +19,16 @@ const handleClickLike = (setLiked: Dispatch<SetStateAction<boolean>>, liked: boo
 			}
 		});
 		setLikeCount((prev) => prev - 1);
+		_cnt = likeCount - 1;
 	}
 	if (!liked) {
 		likedUid.push(data.uid);
 		setLikeCount((prev) => prev + 1);
+		_cnt = likeCount + 1;
 	}
 	localStorage.setItem('likedUid', JSON.stringify(likedUid));
+	
+	fetchData<{}>(`${API_BASE_URL}/home?id=${data.id}&uid=${data.uid}&like=${_cnt}`, 'GET');
 }
 
 const ContentsBox = ({ data }: props) => {
@@ -40,10 +45,6 @@ const ContentsBox = ({ data }: props) => {
 			if (data.uid === d) setLiked(true);
 		});
 	}, [data]);
-	
-	useEffect(() => {
-		fetchData<{}>(`${API_BASE_URL}/home?id=${data.id}&uid=${data.uid}&like=${likeCount}`, 'GET');
-	}, [likeCount]);
 	
 	
 	return (

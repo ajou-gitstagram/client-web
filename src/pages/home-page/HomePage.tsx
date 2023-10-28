@@ -2,6 +2,7 @@ import S from "./HomePage.module.css";
 import ContentsBox from "./contents-box/ContentsBox";
 import Blank from "../../common/module/blank/Blank";
 import type {HomeModel} from "./config/model";
+import PostCreateButton from "./post-create-button/PostCreateButton";
 
 const dummy: HomeModel = [
     {
@@ -37,6 +38,7 @@ const HomePage = () => {
             { dummy.map((d, i) => {
                 return <ContentsBox data={d} />
             }) }
+            <PostCreateButton />
         </div>
     );
 }

@@ -6,24 +6,28 @@ import React from "react";
 
 const dummy: HomeModel = [
 	{
+		uid: 1,
 		id: "id000",
 		contents: "contentscontents",
 		likes: 100,
 		tags: ["tag1", "tag2", "tag3"]
 	},
 	{
+		uid: 2,
 		id: "id111",
 		contents: "contentscontents",
 		likes: 99,
 		tags: ["tag1", "tag2", "tag3"]
 	},
 	{
+		uid: 3,
 		id: "id222",
 		contents: "contentscontents",
 		likes: 98,
 		tags: ["tag1", "tag2", "tag3"]
 	},
 	{
+		uid: 4,
 		id: "id333",
 		contents: "contentscontents",
 		likes: 97,

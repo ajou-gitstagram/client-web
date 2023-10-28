@@ -6,24 +6,28 @@ import PostCreateButton from "./post-create-button/PostCreateButton";
 
 const dummy: HomeModel = [
     {
+        uid: 1,
         id: "id000",
         contents: "contentscontents",
         likes: 0,
         tags: ["tag1", "tag2", "tag3"]
     },
     {
+        uid: 2,
         id: "id111",
         contents: "contentscontents",
         likes: 1,
         tags: ["tag1", "tag2", "tag3"]
     },
     {
+        uid: 3,
         id: "id222",
         contents: "contentscontents",
         likes: 2,
         tags: ["tag1", "tag2", "tag3"]
     },
     {
+        uid: 4,
         id: "id333",
         contents: "contentscontents",
         likes: 3,

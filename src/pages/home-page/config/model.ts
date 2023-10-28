@@ -1,6 +1,7 @@
 type HomeModel = Array<HomeData>;
 
 interface HomeData {
+	uid: number;
 	id: string;
 	contents: string;
 	likes: number;

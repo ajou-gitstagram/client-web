@@ -24,7 +24,7 @@ const Navigator = ({ setLogin, setId }: props) => {
 			</Link>
 			<Link to={'/posting-rank'}>
 				<div className={S['navigator-item']}>
-					<span>❤</span>️
+					<span>❤️</span>️
 					<span>Posting Ranks</span>
 				</div>
 			</Link>

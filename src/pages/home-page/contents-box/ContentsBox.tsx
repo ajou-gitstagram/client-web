@@ -1,11 +1,48 @@
 import S from './ContentsBox.module.css';
 import {HomeData} from "../config/model";
+import {Dispatch, SetStateAction, useEffect, useState} from "react";
 
 interface props {
 	data: HomeData
 }
 
+const handleClickLike = (setLiked: Dispatch<SetStateAction<boolean>>, liked: boolean, setLikeCount: Dispatch<SetStateAction<number>>, uid: number) => {
+	const likedUid: number[] = JSON.parse(localStorage.getItem('likedUid') || '[]');
+	
+	setLiked((prev) => !prev);
+	if (liked) {
+		likedUid.forEach((d) => {
+			if (uid === d) { // @ts-ignore
+				likedUid.pop(d);
+			}
+		});
+		setLikeCount((prev) => prev - 1);
+	}
+	if (!liked) {
+		likedUid.push(uid);
+		setLikeCount((prev) => prev + 1);
+	}
+	localStorage.setItem('likedUid', JSON.stringify(likedUid));
+	
+	//TODO:: API CONNECT
+}
+
 const ContentsBox = ({ data }: props) => {
+	const [liked, setLiked] = useState(false);
+	const [likeCount, setLikeCount] = useState(0);
+	
+	useEffect(() => {
+		setLikeCount(data.likes);
+	}, [data]);
+	
+	useEffect(() => {
+		const likedUid: number[] = JSON.parse(localStorage.getItem('likedUid') || '[]');
+		likedUid.forEach((d) => {
+			if (data.uid === d) setLiked(true);
+		});
+	}, [data]);
+	
+	
 	return (
 		<article className={S['container']}>
 			<p className={S['content-id']}>@{data.id}</p>
@@ -16,9 +53,9 @@ const ContentsBox = ({ data }: props) => {
 				<div>
 					{data.tags.map((d) => <span className={S['content-tag']}>#{d}</span>)}
 				</div>
-				<div className={S['content-like']}>
-					<span>♡ </span>
-					<span>{data.likes}</span>
+				<div onClick={() => handleClickLike(setLiked, liked, setLikeCount, data.uid)} className={S['content-like']}>
+					<span>{liked ? "❤️ " : "♡ "}</span>
+					<span>{likeCount}</span>
 				</div>
 			</div>
 		</article>

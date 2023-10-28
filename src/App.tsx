@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import './App.css';
 import './common/reset.css';
 import './common/common.css';
@@ -18,6 +18,10 @@ function App() {
     const [login, setLogin] = useState(false);
     const [id, setId] = useState("");
     // FIXME:: default is false on prod
+    
+    useEffect(() => {
+        localStorage.setItem('likedUid', '[]');
+    }, []);
     
     return (
         <div className="App">

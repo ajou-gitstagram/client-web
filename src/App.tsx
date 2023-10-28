@@ -30,7 +30,7 @@ function App() {
             {
                 <div className={'flex'}>
                     {login && <Navigator setLogin={setLogin} setId={setId} />}
-                    <Container>
+                    <Container> 
                         <Routes>
                             <Route path={"/"} element={<HomePage />} />
                             <Route path={"/login"} element={<LoginPage setLogin={setLogin} setId={setId} />} />

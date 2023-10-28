@@ -1,6 +1,6 @@
 .header-container {
     width: 100vw;
-    height: 120px;
+    height: 110px;
     display: flex;
     align-items: center;
     position: fixed;
@@ -11,5 +11,5 @@
 
 .header-logo {
     display: block;
-    height: 75%;
+    height: 90%;
 }

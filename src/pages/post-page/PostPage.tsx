@@ -1,6 +1,8 @@
 import S from './PostPage.module.css';
 import Blank from "../../common/module/blank/Blank";
 import {Dispatch, SetStateAction, useState} from "react";
+import {API_BASE_URL, fetchData} from "../../common/util/api";
+import {BrowserRouter, Navigation, redirect, useNavigate, useNavigation} from "react-router-dom";
 
 interface props {
 	id: string;
@@ -14,12 +16,21 @@ const handleInputTags = (e: any, setTags: Dispatch<SetStateAction<string[]>>) =>
 	setTags(() => e.target.value.split(',').map((d: string) => d.trim()));
 }
 
-const handleSubmit = (e: any, id: string, contents: string, tags: string[]) => {
+const handleSubmit = (e: any, id: string, contents: string, tags: string[], nav: any) => {
 	const submit = { id, contents, tags }
 	console.log(submit);
+	try {
+		fetchData<{}>(`${API_BASE_URL}/post?id=${id}&contents=${contents}&tags=${JSON.stringify(tags)}`, 'GET');
+		alert("게시글이 정상적으로 등록되었습니다.");
+		nav('/');
+	} catch(e) {
+		console.error(e);
+	}
 }
 
 const PostPage = ({ id }: props) => {
+	const nav = useNavigate();
+	
 	const [contents, setContents] = useState<string>("");
 	const [tags, setTags] = useState<string[]>([]);
 	
@@ -31,7 +42,7 @@ const PostPage = ({ id }: props) => {
 			<Blank height={32} />
 			<h3 className={S['post-subtitle']}>Tags (split by ,)</h3>
 			<input onInput={(e) => handleInputTags(e, setTags)} id={'postTags'} className={S['post-tag-input']} />
-			<button onClick={(e) => handleSubmit(e as unknown as MouseEvent, id, contents, tags)} className={S['post-submit']}>Submit</button>
+			<button onClick={(e) => handleSubmit(e as unknown as MouseEvent, id, contents, tags, nav)} className={S['post-submit']}>Submit</button>
 		</div>
 	);
 }

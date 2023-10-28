@@ -28,10 +28,14 @@ const LoginPage = ({ setLogin, setId }:props) => {
 		console.log(formData.id);
 		navigation("/");
 	};
+	const goToSignUp = () => {
+		navigation("/signup")
+	}
 
 	return (
 		<div className={S["page"]}>
 			<img className="logo" alt="logo" src="img/logo.jpg" style={{width:"30rem"}}/>
+			<div className={S["inputTitle"]}>깃 아이디</div>
 			<div className={S["inputWrap"]}>
 				<input
 					className={S["input"]}
@@ -40,7 +44,7 @@ const LoginPage = ({ setLogin, setId }:props) => {
 					onChange={handleChange}
 				/>
 			</div>
-				
+			<div className={S["inputTitle"]}>비밀번호</div>	
 			<div className={S["inputWrap"]}>
 				<input
 					className={S["input"]}
@@ -54,8 +58,8 @@ const LoginPage = ({ setLogin, setId }:props) => {
 				로그인
 			</button>
 			<div className={S["signupContainer"]}>
-				<button className={S["goToSignup"]}>
-					이메일로 회원가입
+				<button className={S["goToSignup"]} onClick={goToSignUp}>
+					깃 아이디로 회원가입
 				</button>
 			</div>
 		</div>

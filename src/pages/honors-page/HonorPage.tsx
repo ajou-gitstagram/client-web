@@ -3,39 +3,39 @@ import type {HonorModel} from "./config/model";
 
 const dummy: HonorModel = [
     {
-        id: "id000",
-        winCount: 1,
-		contents: "응~ 드루와~",
-        rank: 0,
-    },
-    {
-        id: "id111",
-        winCount: 4,
-		contents: "커밋 못 따라오쥬~~",
-        rank: 0,
-    },
-    {
-        id: "id222",
+        id: "taerim",
         winCount: 7,
-		contents: "ㅎㅇ들~",
+		contents: "감사합니다감사합니다감사합니다",
         rank: 0,
     },
     {
-        id: "id333",
+        id: "mmmm",
+        winCount: 1,
+		contents: "내 아래로 다 차렷!!!!",
+        rank: 0,
+    },
+    {
+        id: "kmkkkp",
+        winCount: 7,
+		contents: "반갑습니다~ 소통해요~",
+        rank: 0,
+    },
+    {
+        id: "jhnah917",
         winCount: 10,
-		contents: "아주대 화이팅~",
+		contents: "justiceHui.github.io",
         rank: 0,
     },
 	{
-        id: "id444",
+        id: "Muzi-HS",
         winCount: 5,
-		contents: "HI Ajou",
+		contents: "I love AJOU",
         rank: 0,
     },
 	{
-        id: "id555",
+        id: "jjunhub",
         winCount: 3,
-		contents: "ㅋㅋ",
+		contents: "의예과20",
         rank: 0,
     },
 

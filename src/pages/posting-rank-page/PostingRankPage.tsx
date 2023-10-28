@@ -34,15 +34,15 @@ const dummy: HomeModel = [
 	{
 		uid: 5,
 		id: "id222",
-		contents: "contentscontents",
-		likes: 10,
+		content: "contentscontents",
+		like: 10,
 		tags: ["tag1", "tag2", "tag3"]
 	},
     {
 		uid: 6,
 		id: "id333",
-		contents: "contentscontents",
-		likes: 20,
+		content: "contentscontents",
+		like: 20,
 		tags: ["tag1", "tag2", "tag3"]
 	},
 ]
@@ -55,7 +55,7 @@ const PostingRankPage = () => {
 		setSelectedMonth(parseInt(e.target.value, 10));
 	};
 	
-	const sortedDummy = [...dummy].sort((a, b) => b.likes - a.likes);
+	const sortedDummy = [...dummy].sort((a, b) => b.like - a.like);
 
 	return (
 	<div>
@@ -89,13 +89,13 @@ const getMedal = (idx: number) => {
 	else return "";
 }
 
-const ContentsBox: React.FC<{ data: { id: string, likes: number }, rank: number}> = ({ data, rank }) => {
-   
+const ContentsBox: React.FC<{ data: { id: string, like: number }, rank: number}> = ({ data, rank }) => {
+ 
 	return (
         <div className={S['rankItem']}>
 			<span className={S["rank"]}>{rank}{getMedal(rank)}</span>
             <span className={S['id']}>{data.id}</span>
-            <span className={S['likes']}>{data.likes} 🧡</span>
+            <span className={S['likes']}>{data.like} 🧡</span>
         </div>
     );
 }

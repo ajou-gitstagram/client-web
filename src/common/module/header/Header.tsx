@@ -3,7 +3,7 @@ import S from './Header.module.css';
 const Header = () => {
 	return (
 		<header className={S['header-container']}>
-			<p>Gitstagram</p>
+			<img className={S['header-logo']} src={'/img/logo.jpg'} />
 		</header>
 	);
 }

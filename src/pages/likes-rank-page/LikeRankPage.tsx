@@ -1,4 +1,4 @@
-import S from "./PostingRankPage.module.css";
+import S from "./LikeRankPage.module.css";
 import {HomeModel} from "../home-page/config/model";
 import Blank from "../../common/module/blank/Blank";
 import React, {useState} from "react";
@@ -48,15 +48,31 @@ const dummy: HomeModel = [
 	},
 ]
 
-const PostingRankPage = () => {
+const LikeRankPage = () => {
 
 	const [selectedMonth, setSelectedMonth] = useState(new Date().getMonth() + 1)
 	
 	const handleMonthChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
 		setSelectedMonth(parseInt(e.target.value, 10));
 	};
-	
-	const sortedDummy = [...dummy].sort((a, b) => b.likes - a.likes);
+	const aggregateById = (data: HomeModel) => {
+		const aggregatedData: { [id: string]: { id: string, likes: number, uid: number } } = {};
+	  
+		data.forEach(item => {
+		  if (aggregatedData[item.id]) {
+			aggregatedData[item.id].likes += item.likes;
+		  } else {
+			// id가 처음 등장한 경우, 해당 item을 그대로 복사하여 넣습니다.
+			aggregatedData[item.id] = { ...item };
+		  }
+		});
+	  
+		// 객체를 배열로 변환
+		return Object.values(aggregatedData);
+	};
+
+	const aggregatedDummy = aggregateById(dummy)
+	const sortedDummy = [...aggregatedDummy].sort((a, b) => b.likes - a.likes);
 
 	return (
 	<div>
@@ -71,7 +87,7 @@ const PostingRankPage = () => {
 				))}
 				</select>
 			</div>
-			<h2 style={{fontSize: "50px", marginBottom: "20px"}}>👨‍💻 Posting Rank Month of {selectedMonth}</h2>
+			<h2 style={{fontSize: "50px", marginBottom: "20px"}}>🧡 Sum Rank Month of {selectedMonth}</h2>
 		
 			<div className={S['ranking']}>
 				{ sortedDummy.map((d, i) => {
@@ -90,16 +106,15 @@ const getMedal = (idx: number) => {
 	else return "";
 }
 
-const ContentsBox: React.FC<{ data: { id: string, likes: number, contents: string }, rank: number}> = ({ data, rank }) => {
+const ContentsBox: React.FC<{ data: { id: string, likes: number }, rank: number}> = ({ data, rank }) => {
    
 	return (
         <div className={S['rankItem']}>
 			<span className={S["rank"]}>{rank}{getMedal(rank)}</span>
             <span className={S['id']}>{data.id}</span>
-			<span className={S['contents']}>{data.contents}</span>
-            <span className={S['likes']}>{data.likes} 💛</span>
+            <span className={S['likes']}>{data.likes} 🧡</span>
         </div>
     );
 }
 
-export default PostingRankPage;
+export default LikeRankPage;

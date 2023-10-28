@@ -32,8 +32,14 @@ const Navigator = ({ setLogin, setId }: props) => {
 			</Link>
 			<Link to={'/posting-rank'}>
 				<div className={[S['navigator-item'], (selected === '/posting-rank' ? S['selected'] : [''])].join(' ')}>
-					<span>❤️</span>️
+					<span>👨‍💻</span>️
 					<span>Posting Ranks</span>
+				</div>
+			</Link>
+			<Link to={'/like-rank'}>
+				<div className={[S['navigator-item'], (selected === '/like-rank' ? S['selected'] : [''])].join(' ')}>
+					<span>❤️</span>
+					<span>Like Ranks</span>
 				</div>
 			</Link>
 			<Link to={'/honor'}>

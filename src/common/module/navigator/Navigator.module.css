@@ -1,8 +1,19 @@
 .navigator-container {
-    height: calc(100vh - 100px);
-    width: 200px;
-    top: 100px;
+    height: calc(100vh - 120px);
+    width: 300px;
+    top: 120px;
 
-    background-color: greenyellow;
     position: fixed;
+
+    border-right: 1px solid black;
+}
+
+.navigator-item {
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    border-bottom: 1px solid gray;
+    color: black;
 }

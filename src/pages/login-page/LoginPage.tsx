@@ -1,4 +1,4 @@
-import "./LoginPage.module.css";
+import S from "./LoginPage.module.css";
 import {Dispatch, SetStateAction} from "react";
 
 interface props {
@@ -9,37 +9,36 @@ interface FormData{
 	password: string;
 }
 const LoginPage = ({ setLogin }:props) => {
-		<div className="page">
+		
 	return (
-			<img className="logo" alt="logo" src="img/logo.jpg" style={{width:"700px"}}/>
-			<div className='inputWrap'>
+		<div className={S["page"]}>
+			<img className="logo" alt="logo" src="img/logo.jpg" style={{width:"30rem"}}/>
+			<div className={S["inputWrap"]}>
 				<input
-					className="input"
+					className={S["input"]}
 					type="text"
 					name="id"
-				</input>
-				>
+				/>
 			</div>
+				
+			<div className={S["inputWrap"]}>
 				<input
-			<div className="inputWrap">
-					className="input"
+					className={S["input"]}
 					name="pw"
 					type="password"
-				>
-				</input>
+				/>
 			</div>
-			<button className="bottomButton">
-			</button>
+
+			<button className={S["bottomButton"]}>
 				확인
-				<div className="line"></div>
-			<div className="signupContainer">
+			</button>
+			<div className={S["signupContainer"]}>
 				<button className="goToSignup">
 					이메일로 회원가입
-				<div className="line"></div>
 				</button>
+			</div>
 		</div>
 	);
-			</div>
 }
 
 export default LoginPage;

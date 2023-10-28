@@ -16,13 +16,13 @@ const Navigator = ({ setLogin, setId }: props) => {
 					<span>Home</span>
 				</div>
 			</Link>
-			<Link to={'/rank'}>
+			<Link to={'/commit-rank'}>
 				<div className={S['navigator-item']}>
 					<span>👑</span>
 					<span>Commit Ranks</span>
 				</div>
 			</Link>
-			<Link to={'/rank'}>
+			<Link to={'/posting-rank'}>
 				<div className={S['navigator-item']}>
 					<span>❤</span>️
 					<span>Posting Ranks</span>

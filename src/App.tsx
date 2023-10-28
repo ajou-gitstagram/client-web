@@ -11,6 +11,7 @@ import PostPage from "./pages/post-page/PostPage";
 import Header from "./common/module/header/Header";
 import Navigator from "./common/module/navigator/Navigator";
 import Container from "./common/module/container/Container";
+import PostingRankPage from "./pages/posting-rank-page/PostingRankPage";
 
 function App() {
     const [login, setLogin] = useState(false);
@@ -28,7 +29,8 @@ function App() {
                             <Route path={"/"} element={<HomePage />} />
                             <Route path={"/login"} element={<LoginPage setLogin={setLogin} setId={setId} />} />
                             <Route path={"/signup"} element={<SignupPage />} />
-                            <Route path={"/rank"} element={<CommitRankPage />} />
+                            <Route path={"/commit-rank"} element={<CommitRankPage />} />
+                            <Route path={"/posting-rank"} element={<PostingRankPage />} />
                             <Route path={"/post"} element={<PostPage id={id} />} />
                         </Routes>
                     </Container>

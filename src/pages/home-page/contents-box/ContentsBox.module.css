@@ -1,6 +1,31 @@
 .container {
+    padding: 32px;
     width: 500px;
-    height: 400px;
-    background-color: gray;
+    /*height: 400px;*/
     margin-bottom: 60px;
+
+    border: 1px solid gray;
+    border-radius: 32px;
+}
+
+.content-id {
+    font-weight: bold;
+    font-size: 30px;
+    text-align: left;
+}
+
+.content-content {
+    text-align: left;
+    margin: 32px 0;
+    font-size: 24px;
+}
+
+.content-tag {
+    color: darkblue;
+    margin-right: 16px;
+}
+
+.content-like {
+    font-size: 24px;
+    cursor: pointer;
 }

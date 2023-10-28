@@ -6,4 +6,7 @@
 .mt-8 { margin-top: 8px; }
 .mt-16 { margin-top: 16px; }
 
+.mr-16 { margin-right: 16px; }
+
 .flex { display: flex; }
+.space-between { justify-content: space-between; }

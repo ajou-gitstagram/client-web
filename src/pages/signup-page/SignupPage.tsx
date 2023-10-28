@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 const SignupPage = () => {
 	const navigation = useNavigate();
 	const handleChange = () => {
-		navigation("/");
+		navigation("/login");
 	};
 	return (
 		<div className={S["page"]}>

@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import './App.css';
 import './common/reset.css';
+import './common/common.css';
 import {Routes, Route} from "react-router-dom";
 import HomePage from "./pages/home-page/HomePage";
 import RankPage from "./pages/rank-page/RankPage";
@@ -9,6 +10,7 @@ import SignupPage from "./pages/signup-page/SignupPage";
 import PostPage from "./pages/post-page/PostPage";
 import Header from "./common/module/header/Header";
 import Navigator from "./common/module/navigator/Navigator";
+import Container from "./common/module/container/Container";
 
 function App() {
     const [login, setLogin] = useState(true);
@@ -16,20 +18,21 @@ function App() {
     
     return (
         <div className="App">
-            {login &&
-                <>
-                    <Header />
-                    <Navigator />
-                </>
+            {login && <Header />}
+            {
+                <div className={'flex'}>
+                    {login && <Navigator/>}
+                    <Container>
+                        <Routes>
+                            <Route path={"/"} element={<HomePage />} />
+                            <Route path={"/login"} element={<LoginPage setLogin={setLogin} />} />
+                            <Route path={"/signup"} element={<SignupPage />} />
+                            <Route path={"/rank"} element={<RankPage />} />
+                            <Route path={"/post"} element={<PostPage />} />
+                        </Routes>
+                    </Container>
+                </div>
             }
-            
-            <Routes>
-                <Route path={"/"} element={<HomePage />} />
-                <Route path={"/login"} element={<LoginPage setLogin={setLogin} />} />
-                <Route path={"/signup"} element={<SignupPage />} />
-                <Route path={"/rank"} element={<RankPage />} />
-                <Route path={"/post"} element={<PostPage />} />
-            </Routes>
         </div>
     );
 }

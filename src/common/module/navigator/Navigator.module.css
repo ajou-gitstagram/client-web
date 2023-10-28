@@ -1,6 +1,8 @@
 .navigator-container {
     height: calc(100vh - 100px);
     width: 200px;
+    top: 100px;
 
     background-color: greenyellow;
+    position: fixed;
 }

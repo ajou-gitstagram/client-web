@@ -20,3 +20,7 @@
 .navigator-item span {
     margin-left: 32px;
 }
+
+.selected {
+    background-color: #fcfc;
+}

@@ -16,7 +16,7 @@ import PostingRankPage from "./pages/posting-rank-page/PostingRankPage";
 import CreditPage from "./pages/credit-page/CreditPage";
 
 function App() {
-    const [login, setLogin] = useState(false);
+    const [login, setLogin] = useState(true);
     const [id, setId] = useState("");
     // FIXME:: default is false on prod
     

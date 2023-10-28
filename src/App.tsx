@@ -13,6 +13,7 @@ import Header from "./common/module/header/Header";
 import Navigator from "./common/module/navigator/Navigator";
 import Container from "./common/module/container/Container";
 import PostingRankPage from "./pages/posting-rank-page/PostingRankPage";
+import CreditPage from "./pages/credit-page/CreditPage";
 
 function App() {
     const [login, setLogin] = useState(false);
@@ -38,6 +39,7 @@ function App() {
                             <Route path={"/posting-rank"} element={<PostingRankPage />} />
                             <Route path={"/post"} element={<PostPage id={id} />} />
                             <Route path={"/honor"} element={<HonorPage />} />
+                            <Route path={"/credits"} element={<CreditPage />} />
                         </Routes>
                     </Container>
                 </div>

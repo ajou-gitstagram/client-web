@@ -32,7 +32,7 @@ const ContentsBox = ({ data }: props) => {
 	const [likeCount, setLikeCount] = useState(0);
 	
 	useEffect(() => {
-		setLikeCount(data.likes);
+		setLikeCount(data.like);
 	}, [data]);
 	
 	useEffect(() => {
@@ -47,11 +47,16 @@ const ContentsBox = ({ data }: props) => {
 		<article className={S['container']}>
 			<p className={S['content-id']}>@{data.id}</p>
 			<hr />
-			<p className={S['content-content']}>{data.contents}</p>
+			<p className={S['content-content']}>{data.content}</p>
 			<hr />
 			<div className={'flex space-between'}>
 				<div>
-					{data.tags.map((d) => <span className={S['content-tag']}>#{d}</span>)}
+					{
+						Array.isArray(data) ?
+						// @ts-ignore
+						data.tags.map((d) => <span className={S['content-tag']}>#{d}</span>)
+						: data.tags
+					}
 				</div>
 				<div onClick={() => handleClickLike(setLiked, liked, setLikeCount, data.uid)} className={S['content-like']}>
 					<span>{liked ? "❤️ " : "♡ "}</span>

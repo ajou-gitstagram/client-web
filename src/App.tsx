@@ -17,7 +17,7 @@ import CreditPage from "./pages/credit-page/CreditPage";
 
 function App() {
     const [login, setLogin] = useState(true);
-    const [id, setId] = useState("");
+    const [id, setId] = useState("mmmm");
     // FIXME:: default is false on prod
     
     useEffect(() => {
@@ -32,7 +32,7 @@ function App() {
                     {login && <Navigator setLogin={setLogin} setId={setId} />}
                     <Container>
                         <Routes>
-                            <Route path={"/"} element={<HomePage />} />
+                            <Route path={"/"} element={<HomePage id={id} />} />
                             <Route path={"/login"} element={<LoginPage setLogin={setLogin} setId={setId} />} />
                             <Route path={"/signup"} element={<SignupPage />} />
                             <Route path={"/commit-rank"} element={<CommitRankPage />} />

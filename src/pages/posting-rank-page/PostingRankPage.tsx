@@ -89,13 +89,14 @@ const getMedal = (idx: number) => {
 	else return "";
 }
 
-const ContentsBox: React.FC<{ data: { id: string, like: number }, rank: number}> = ({ data, rank }) => {
+const ContentsBox: React.FC<{ data: { id: string, like: number, content: string }, rank: number}> = ({ data, rank }) => {
  
 	return (
         <div className={S['rankItem']}>
 			<span className={S["rank"]}>{rank}{getMedal(rank)}</span>
             <span className={S['id']}>{data.id}</span>
-            <span className={S['likes']}>{data.like} 🧡</span>
+			<pre className={S['contents']}>{data.content}</pre>
+            <span className={S['likes']}>{data.like} 💛</span>
         </div>
     );
 }

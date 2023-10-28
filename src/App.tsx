@@ -10,7 +10,7 @@ import LikeRankPage from "./pages/likes-rank-page/LikeRankPage";
 import LoginPage from "./pages/login-page/LoginPage";
 import SignupPage from "./pages/signup-page/SignupPage";
 import PostPage from "./pages/post-page/PostPage";
-import Header from "./common/module/header/Header";
+import Header from "./common/module/header/Header"; 
 import Navigator from "./common/module/navigator/Navigator";
 import Container from "./common/module/container/Container";
 import PostingRankPage from "./pages/posting-rank-page/PostingRankPage";

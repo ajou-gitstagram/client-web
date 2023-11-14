@@ -6,37 +6,6 @@ import PostCreateButton from "./post-create-button/PostCreateButton";
 import {useEffect, useState} from "react";
 import {fetchData, API_BASE_URL} from "../../common/util/api";
 
-const dummy: HomeModel = [
-    {
-        uid: 1,
-        id: "id000",
-        content: "contentscontents",
-        like: 0,
-        tags: ["tag1", "tag2", "tag3"]
-    },
-    {
-        uid: 2,
-        id: "id111",
-        content: "contentscontents",
-        like: 1,
-        tags: ["tag1", "tag2", "tag3"]
-    },
-    {
-        uid: 3,
-        id: "id222",
-        content: "contentscontents",
-        like: 2,
-        tags: ["tag1", "tag2", "tag3"]
-    },
-    {
-        uid: 4,
-        id: "id333",
-        content: "contentscontents",
-        like: 3,
-        tags: ["tag1", "tag2", "tag3"]
-    },
-]
-
 
 interface props {
     id: string
@@ -49,7 +18,7 @@ const HomePage = ({ id }: props) => {
             id: "aa",
             content: "bb",
             like: 0,
-            tags: ["dd"]
+            tag: ["dd"]
         }
     ]);
     

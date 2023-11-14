@@ -5,7 +5,7 @@ interface HomeData {
 	id: string;
 	content: string;
 	like: number;
-	tags: string|string[];
+	tag: string|string[];
 }
 
 export type {

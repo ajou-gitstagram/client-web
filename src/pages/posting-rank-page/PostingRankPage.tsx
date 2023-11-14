@@ -3,50 +3,6 @@ import {HomeData, HomeModel} from "../home-page/config/model";
 import React, {useState, useEffect} from "react";
 import {API_BASE_URL, fetchData} from "../../common/util/api";
 
-const dummy: HomeModel = [
-	{
-		uid: 1,
-		id: "id000",
-		content: "contentscontents",
-		like: 90,
-		tags: ["tag1", "tag2", "tag3"]
-	},
-	{
-		uid: 2,
-		id: "id111",
-		content: "contentscontents",
-		like: 109,
-		tags: ["tag1", "tag2", "tag3"]
-	},
-	{
-		uid: 3,
-		id: "id222",
-		content: "contentscontents",
-		like: 98,
-		tags: ["tag1", "tag2", "tag3"]
-	},
-	{
-		uid: 4,
-		id: "id333",
-		content: "contentscontents",
-		like: 97,
-		tags: ["tag1", "tag2", "tag3"]
-	},
-	{
-		uid: 5,
-		id: "id222",
-		content: "contentscontents",
-		like: 10,
-		tags: ["tag1", "tag2", "tag3"]
-	},
-    {
-		uid: 6,
-		id: "id333",
-		content: "contentscontents",
-		like: 20,
-		tags: ["tag1", "tag2", "tag3"]
-	},
-]
 
 interface props {
 	id: string;
@@ -118,8 +74,8 @@ const ContentsBox: React.FC<{ data: { id: string, like: number, content: string 
 			<p className={S['content-id']}>{getMedal(rank)} {rank}등 @{data.id}</p>
 			<hr />
 			<p className={S['content-content']}>{data.content}</p>
-			<hr />	
-			<div className={'flex space-between'}>	
+			<hr />
+			<div className={'flex space-between'}>
 			</div>
 		</article>
     );

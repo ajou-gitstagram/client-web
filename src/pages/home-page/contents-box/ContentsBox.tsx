@@ -56,10 +56,10 @@ const ContentsBox = ({ data }: props) => {
 			<div className={'flex space-between'}>
 				<div>
 					{
-						Array.isArray(data) ?
+						Array.isArray(data.tag) ?
 						// @ts-ignore
-						data.tags.map((d) => <span className={S['content-tag']}>#{d}</span>)
-						: data.tags
+						data.tag.map((d) => <span className={S['content-tag']}>#{d}</span>)
+						: data.tag
 					}
 				</div>
 				<div onClick={() => handleClickLike(setLiked, liked, setLikeCount, likeCount, data)} className={S['content-like']}>
